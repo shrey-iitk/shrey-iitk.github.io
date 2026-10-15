@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>Renewable Energy Integrated Smart Charging Framework | Shrey Verma</title>
+		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="assets/katex/katex.min.css">
+	</head>
+	<body>
+		<main>
+			<div class="wrap narrow">
+				<a class="back" href="projects.html">← All projects</a>
+				<header class="phead">
+					<span class="pill">2025 – 2026</span>
+					<h1>Renewable Energy Integrated Smart Charging Framework</h1>
+					<p class="lead">A simulation framework combining renewables, storage and EV charging for smart grids.</p>
+					<div class="skills">
+						<span>Python</span>
+						<span>MATLAB</span>
+						<span>BESS</span>
+						<span>EMS</span>
+						<span>Smart charging</span>
+					</div>
+				</header>
+				<figure class="pfig reveal">
+					<img src="assets/projects/renewable-smart-charging.svg" alt="Renewable Energy Integrated Smart Charging Framework (dummy image)">
+					<figcaption>Figure 1. Dummy image: replace assets/projects/renewable-smart-charging.svg with your own figure.</figcaption>
+				</figure>
+				<section class="psec reveal">
+					<h2>Overview</h2>
+					<p>An integrated simulation framework that combines renewable energy sources, battery energy storage systems (BESS), energy management systems (EMS), distribution operators and EV charging infrastructure for smart grid applications.</p>
+				</section>
+				<section class="psec reveal">
+					<h2>Objectives</h2>
+					<ul>
+						<li>Combine PV generation, storage and EV charging in one model.</li>
+						<li>Let the EMS decide when to charge, discharge or import from the grid.</li>
+						<li>Reduce grid import and cost while respecting network limits.</li>
+					</ul>
+				</section>
+				<!-- The equations below illustrate the underlying model. Edit the LaTeX between $$ ... $$ to match your exact implementation. -->
+				<section class="psec eqsec reveal">
+					<h2>Method and key equations</h2>
+					<p>At every time step the EMS solves a power-balance problem. Storage energy is tracked with a state-of-charge model, and the schedule is chosen to minimise the cost of grid energy.</p>
+					<div class="eq">$$ P_{\mathrm{PV}}(t) + P_{\mathrm{grid}}(t) + P_{\mathrm{B}}^{\mathrm{dis}}(t) = P_{\mathrm{load}}(t) + P_{\mathrm{EV}}(t) + P_{\mathrm{B}}^{\mathrm{ch}}(t) $$</div>
+					<p class="where">Power balance: supply from PV, grid and battery discharge equals the load, EV charging and battery charging.</p>
+					<div class="eq">$$ \mathrm{SOC}(t+1) = \mathrm{SOC}(t) + \frac{\eta_c\,P_{\mathrm{B}}^{\mathrm{ch}}(t) - P_{\mathrm{B}}^{\mathrm{dis}}(t)/\eta_d}{E_{\mathrm{cap}}}\,\Delta t $$</div>
+					<p class="where">Battery state of charge, with charging and discharging efficiencies \(\eta_c\), \(\eta_d\) and energy capacity \(E_{\mathrm{cap}}\).</p>
+					<div class="eq">$$ \min \sum_{t=1}^{T} c(t)\,P_{\mathrm{grid}}(t)\,\Delta t $$</div>
+					<p class="where">The EMS objective: minimise the total cost of grid energy, where \(c(t)\) is the price at time \(t\).</p>
+				</section>
+				<section class="psec reveal">
+					<h2>Outcome</h2>
+					<p>Add your results here: key findings, figures, and links to the related paper or code.</p>
+				</section>
+				<nav class="pnav">
+					<a href="project-ev-charging-impact-iitk.html"><small>← Previous</small>Impact Analysis of EV Charging Infrastructure at IIT Kanpur</a>
+					<a class="r" href="project-distribution-grid-digital-twin.html"><small>Next →</small>Distribution Grid Digital Twin using OpenDSS</a>
+				</nav>
+			</div>
+		</main>
+		<script src="assets/katex/katex.min.js"></script>
+		<script src="assets/katex/auto-render.min.js"></script>
+		<script src="script.js"></script>
+		<script src="math.js"></script>
+	</body>
+</html>

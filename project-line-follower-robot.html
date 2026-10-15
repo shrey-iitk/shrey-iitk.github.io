@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>Line Follower Robot | Shrey Verma</title>
+		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="assets/katex/katex.min.css">
+	</head>
+	<body>
+		<main>
+			<div class="wrap narrow">
+				<a class="back" href="projects.html">← All projects</a>
+				<header class="phead">
+					<span class="pill">Hobby project</span>
+					<h1>Line Follower Robot</h1>
+					<p class="lead">A robot that follows a black and white line and can solve a maze.</p>
+					<div class="skills">
+						<span>Arduino</span>
+						<span>IR sensors</span>
+						<span>PWM</span>
+						<span>Motor driver</span>
+					</div>
+				</header>
+				<figure class="pfig reveal">
+					<img src="assets/projects/line-follower-robot.svg" alt="Line Follower Robot (dummy image)">
+					<figcaption>Figure 1. Dummy image: replace assets/projects/line-follower-robot.svg with your own figure.</figcaption>
+				</figure>
+				<section class="psec reveal">
+					<h2>Overview</h2>
+					<p>A robot that follows a black and white line using three self-made IR sensors. It can solve a maze by recognising junction symbols such as plus, minus and T, and PWM signals control the motor speed and direction.</p>
+				</section>
+				<section class="psec reveal">
+					<h2>Objectives</h2>
+					<ul>
+						<li>Detect the line with 3 IR sensors.</li>
+						<li>Recognise junction symbols and solve the maze.</li>
+						<li>Control motor speed and direction with PWM.</li>
+					</ul>
+				</section>
+				<!-- The equations below illustrate the underlying model. Edit the LaTeX between $$ ... $$ to match your exact implementation. -->
+				<section class="psec eqsec reveal">
+					<h2>Method and key equations</h2>
+					<p>The sensor readings give the robot's position relative to the line. A controller turns that error into a speed difference between the two wheels, which steers the robot back to the line.</p>
+					<div class="eq">$$ e = \frac{\sum_i w_i\,s_i}{\sum_i s_i} $$</div>
+					<p class="where">Line position error from sensor readings \(s_i\) with position weights \(w_i\); \(e=0\) means the line is centred.</p>
+					<div class="eq">$$ u(t) = K_p\,e(t) + K_i\int_0^t e(\tau)\,d\tau + K_d\,\frac{de(t)}{dt} $$</div>
+					<p class="where">A PID controller turns the error into a steering correction \(u\).</p>
+					<div class="eq">$$ v_L = v_b - u,\qquad v_R = v_b + u $$</div>
+					<p class="where">The correction is added to one wheel and subtracted from the other around the base speed \(v_b\).</p>
+					<div class="eq">$$ V_{\mathrm{avg}} = D\,V_{\mathrm{supply}},\qquad D = \frac{t_{\mathrm{on}}}{T} $$</div>
+					<p class="where">PWM: the average motor voltage follows the duty cycle \(D\).</p>
+				</section>
+				<section class="psec reveal">
+					<h2>Demo</h2>
+					<p><a class="b1" href="https://youtu.be/yEs9XGaz5qA" target="_blank" rel="noopener">▶ Watch the video</a></p>
+				</section>
+				<section class="psec reveal">
+					<h2>Outcome</h2>
+					<p>Add your results here: key findings, figures, and links to the related paper or code.</p>
+				</section>
+				<nav class="pnav">
+					<a href="project-led-cube-4x4x4.html"><small>← Previous</small>4 × 4 LED Cube</a>
+					<a class="r" href="project-amphibian-robot.html"><small>Next →</small>Amphibian Robot</a>
+				</nav>
+			</div>
+		</main>
+		<script src="assets/katex/katex.min.js"></script>
+		<script src="assets/katex/auto-render.min.js"></script>
+		<script src="script.js"></script>
+		<script src="math.js"></script>
+	</body>
+</html>

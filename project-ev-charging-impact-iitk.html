@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>Impact Analysis of EV Charging Infrastructure at IIT Kanpur | Shrey Verma</title>
+		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="assets/katex/katex.min.css">
+	</head>
+	<body>
+		<main>
+			<div class="wrap narrow">
+				<a class="back" href="projects.html">← All projects</a>
+				<header class="phead">
+					<span class="pill">2026 – 2027</span>
+					<h1>Impact Analysis of EV Charging Infrastructure at IIT Kanpur</h1>
+					<p class="lead">Assessing how EV charging infrastructure affects the IIT Kanpur distribution network.</p>
+					<div class="skills">
+						<span>OpenDSS</span>
+						<span>Python</span>
+						<span>Time-series power flow</span>
+						<span>Load modelling</span>
+					</div>
+				</header>
+				<figure class="pfig reveal">
+					<img src="assets/projects/ev-charging-impact-iitk.svg" alt="Impact Analysis of EV Charging Infrastructure at IIT Kanpur (dummy image)">
+					<figcaption>Figure 1. Dummy image: replace assets/projects/ev-charging-impact-iitk.svg with your own figure.</figcaption>
+				</figure>
+				<section class="psec reveal">
+					<h2>Overview</h2>
+					<p>This project studies the impact of EV charging infrastructure on the IIT Kanpur distribution network through time-series power-flow analysis, EV charging-demand modelling, and evaluation of voltage deviations, transformer loading and network hosting capacity.</p>
+				</section>
+				<section class="psec reveal">
+					<h2>Objectives</h2>
+					<ul>
+						<li>Model the daily EV charging demand on campus.</li>
+						<li>Quantify voltage deviation along the feeders over time.</li>
+						<li>Check transformer loading and estimate how many EVs the network can host.</li>
+					</ul>
+				</section>
+				<!-- The equations below illustrate the underlying model. Edit the LaTeX between $$ ... $$ to match your exact implementation. -->
+				<section class="psec eqsec reveal">
+					<h2>Method and key equations</h2>
+					<p>Charging demand is built from individual charging sessions and added to the base load of each bus. A time-series power flow then gives bus voltages and transformer loading for every time step.</p>
+					<div class="eq">$$ \Delta V_i(t) \approx \frac{R_i\,P_i(t) + X_i\,Q_i(t)}{V_0} $$</div>
+					<p class="where">\(R_i\) and \(X_i\) are the feeder resistance and reactance up to bus \(i\), \(P_i\) and \(Q_i\) the net active and reactive power at that bus, and \(V_0\) the nominal voltage.</p>
+					<div class="eq">$$ P_{\mathrm{EV}}(t) = \sum_{k=1}^{N} P_{\mathrm{ch},k}\,u_k(t) $$</div>
+					<p class="where">\(N\) vehicles each draw \(P_{\mathrm{ch},k}\) while charging; \(u_k(t)\in\{0,1\}\) says whether vehicle \(k\) is charging at time \(t\).</p>
+					<div class="eq">$$ L_T(t) = \frac{\sqrt{P_T(t)^2 + Q_T(t)^2}}{S_{\mathrm{rated}}}\times 100\% $$</div>
+					<p class="where">Transformer loading is the apparent power through the transformer divided by its rated capacity \(S_{\mathrm{rated}}\).</p>
+				</section>
+				<section class="psec reveal">
+					<h2>Outcome</h2>
+					<p>Add your results here: key findings, figures, and links to the related paper or code.</p>
+				</section>
+				<nav class="pnav">
+					<a href="project-amphibian-robot.html"><small>← Previous</small>Amphibian Robot</a>
+					<a class="r" href="project-renewable-smart-charging.html"><small>Next →</small>Renewable Energy Integrated Smart Charging Framework</a>
+				</nav>
+			</div>
+		</main>
+		<script src="assets/katex/katex.min.js"></script>
+		<script src="assets/katex/auto-render.min.js"></script>
+		<script src="script.js"></script>
+		<script src="math.js"></script>
+	</body>
+</html>

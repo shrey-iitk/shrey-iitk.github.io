@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>Real-Time EV Charging Data Acquisition using µPMU | Shrey Verma</title>
+		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="assets/katex/katex.min.css">
+	</head>
+	<body>
+		<main>
+			<div class="wrap narrow">
+				<a class="back" href="projects.html">← All projects</a>
+				<header class="phead">
+					<span class="pill">2022 – 2023</span>
+					<h1>Real-Time EV Charging Data Acquisition using µPMU</h1>
+					<p class="lead">An experimental platform that records synchronized charging data for digital twin development.</p>
+					<div class="skills">
+						<span>Siemens CPC50</span>
+						<span>TATA Nexon EV</span>
+						<span>µPMU</span>
+						<span>Data acquisition</span>
+					</div>
+				</header>
+				<figure class="pfig reveal">
+					<img src="assets/projects/realtime-ev-data-acquisition-upmu.svg" alt="Real-Time EV Charging Data Acquisition using µPMU (dummy image)">
+					<figcaption>Figure 1. Dummy image: replace assets/projects/realtime-ev-data-acquisition-upmu.svg with your own figure.</figcaption>
+				</figure>
+				<section class="psec reveal">
+					<h2>Overview</h2>
+					<p>An experimental data acquisition platform was designed around a Siemens CPC50 DC fast charger, a TATA Nexon EV and a micro-Phasor Measurement Unit (µPMU). It collected synchronized high-resolution voltage, current, active power, reactive power and SOC data for digital twin development.</p>
+				</section>
+				<section class="psec reveal">
+					<h2>Objectives</h2>
+					<ul>
+						<li>Capture time-synchronized electrical data during real charging sessions.</li>
+						<li>Record voltage, current, power and SOC together.</li>
+						<li>Provide datasets for building and checking the digital twin.</li>
+					</ul>
+				</section>
+				<!-- The equations below illustrate the underlying model. Edit the LaTeX between $$ ... $$ to match your exact implementation. -->
+				<section class="psec eqsec reveal">
+					<h2>Method and key equations</h2>
+					<p>The µPMU samples the supply voltage and current and reports them as phasors with time stamps. Power is computed from the phasors, and SOC is logged alongside for each session.</p>
+					<div class="eq">$$ \bar{X} = \frac{X_m}{\sqrt{2}}\,e^{j\varphi} $$</div>
+					<p class="where">A sinusoid with peak \(X_m\) and phase \(\varphi\) is represented as one phasor \(\bar{X}\), the quantity a PMU reports.</p>
+					<div class="eq">$$ P = V_{\mathrm{rms}}\,I_{\mathrm{rms}}\cos\varphi,\qquad Q = V_{\mathrm{rms}}\,I_{\mathrm{rms}}\sin\varphi $$</div>
+					<p class="where">Active and reactive power from RMS voltage and current and the angle \(\varphi\) between them.</p>
+					<div class="eq">$$ \mathrm{SOC}(t) = \mathrm{SOC}(t_0) - \frac{1}{C_n}\int_{t_0}^{t} I(\tau)\,d\tau $$</div>
+					<p class="where">Coulomb counting: SOC falls as current \(I\) leaves the battery of rated capacity \(C_n\) (the sign flips while charging).</p>
+				</section>
+				<section class="psec reveal">
+					<h2>Outcome</h2>
+					<p>Add your results here: key findings, figures, and links to the related paper or code.</p>
+				</section>
+				<nav class="pnav">
+					<a href="project-ai-charging-power-prediction.html"><small>← Previous</small>AI-Based Charging Power Prediction</a>
+					<a class="r" href="project-life-cycle-assessment-electric-vehicles.html"><small>Next →</small>Life Cycle Assessment of Electric Vehicles</a>
+				</nav>
+			</div>
+		</main>
+		<script src="assets/katex/katex.min.js"></script>
+		<script src="assets/katex/auto-render.min.js"></script>
+		<script src="script.js"></script>
+		<script src="math.js"></script>
+	</body>
+</html>

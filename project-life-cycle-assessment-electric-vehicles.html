@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>Life Cycle Assessment of Electric Vehicles | Shrey Verma</title>
+		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="assets/katex/katex.min.css">
+	</head>
+	<body>
+		<main>
+			<div class="wrap narrow">
+				<a class="back" href="projects.html">← All projects</a>
+				<header class="phead">
+					<span class="pill">2021 – 2022</span>
+					<h1>Life Cycle Assessment of Electric Vehicles</h1>
+					<p class="lead">A GREET-based assessment of greenhouse gas emissions of electric and conventional vehicles in India.</p>
+					<div class="skills">
+						<span>GREET</span>
+						<span>Life cycle assessment</span>
+						<span>CTG / WTW analysis</span>
+					</div>
+				</header>
+				<figure class="pfig reveal">
+					<img src="assets/projects/life-cycle-assessment-electric-vehicles.svg" alt="Life Cycle Assessment of Electric Vehicles (dummy image)">
+					<figcaption>Figure 1. Dummy image: replace assets/projects/life-cycle-assessment-electric-vehicles.svg with your own figure.</figcaption>
+				</figure>
+				<section class="psec reveal">
+					<h2>Overview</h2>
+					<p>A GREET-based life cycle assessment framework was developed to evaluate greenhouse gas emissions of electric and conventional vehicles under Indian operating conditions, for cradle-to-gate (CTG) and well-to-wheel (WTW) boundaries. Vehicle manufacturing, battery production and fuel-cycle analysis support sustainable transport planning and decarbonization strategies.</p>
+				</section>
+				<section class="psec reveal">
+					<h2>Objectives</h2>
+					<ul>
+						<li>Compare electric and conventional vehicles on the same basis.</li>
+						<li>Include manufacturing, battery production and fuel cycle.</li>
+						<li>Find the distance after which an EV becomes the lower-emission option.</li>
+					</ul>
+				</section>
+				<!-- The equations below illustrate the underlying model. Edit the LaTeX between $$ ... $$ to match your exact implementation. -->
+				<section class="psec eqsec reveal">
+					<h2>Method and key equations</h2>
+					<p>Emissions are split into a one-time part (building the vehicle and battery) and a per-kilometre part (fuel or electricity). Adding them over the vehicle lifetime gives a fair comparison.</p>
+					<div class="eq">$$ \mathrm{GHG}_{\mathrm{WTW}} = \mathrm{GHG}_{\mathrm{WTT}} + \mathrm{GHG}_{\mathrm{TTW}} $$</div>
+					<p class="where">Well-to-wheel emissions are the well-to-tank (fuel production) part plus the tank-to-wheel (use) part.</p>
+					<div class="eq">$$ e_{\mathrm{EV}} = \frac{c_{\mathrm{EV}}\,\mathrm{EF}_{\mathrm{grid}}}{\eta_{\mathrm{ch}}} $$</div>
+					<p class="where">EV use-phase emissions per km from energy use \(c_{\mathrm{EV}}\), grid emission factor \(\mathrm{EF}_{\mathrm{grid}}\) and charging efficiency \(\eta_{\mathrm{ch}}\).</p>
+					<div class="eq">$$ \mathrm{GHG}_{\mathrm{km}} = \frac{G_{\mathrm{mfg}} + G_{\mathrm{batt}}}{L} + e_{\mathrm{use}} $$</div>
+					<p class="where">Life-cycle emissions per km: manufacturing and battery emissions spread over the lifetime distance \(L\), plus use-phase emissions.</p>
+					<div class="eq">$$ L^{*} = \frac{G_{\mathrm{EV}} - G_{\mathrm{ICE}}}{e_{\mathrm{ICE}} - e_{\mathrm{EV}}} $$</div>
+					<p class="where">Break-even distance: after \(L^{*}\) km the EV has emitted less than the conventional vehicle.</p>
+				</section>
+				<section class="psec reveal">
+					<h2>Outcome</h2>
+					<p>Add your results here: key findings, figures, and links to the related paper or code.</p>
+				</section>
+				<nav class="pnav">
+					<a href="project-realtime-ev-data-acquisition-upmu.html"><small>← Previous</small>Real-Time EV Charging Data Acquisition using µPMU</a>
+					<a class="r" href="project-led-cube-4x4x4.html"><small>Next →</small>4 × 4 LED Cube</a>
+				</nav>
+			</div>
+		</main>
+		<script src="assets/katex/katex.min.js"></script>
+		<script src="assets/katex/auto-render.min.js"></script>
+		<script src="script.js"></script>
+		<script src="math.js"></script>
+	</body>
+</html>

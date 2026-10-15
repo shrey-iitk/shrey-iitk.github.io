@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>4 × 4 LED Cube | Shrey Verma</title>
+		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="assets/katex/katex.min.css">
+	</head>
+	<body>
+		<main>
+			<div class="wrap narrow">
+				<a class="back" href="projects.html">← All projects</a>
+				<header class="phead">
+					<span class="pill">Hobby project</span>
+					<h1>4 × 4 LED Cube</h1>
+					<p class="lead">A 64-LED cube driven by an Arduino using multiplexing.</p>
+					<div class="skills">
+						<span>Arduino</span>
+						<span>C / C++</span>
+						<span>PWM</span>
+						<span>Multiplexing</span>
+					</div>
+				</header>
+				<figure class="pfig reveal">
+					<img src="assets/projects/led-cube-4x4x4.svg" alt="4 × 4 LED Cube (dummy image)">
+					<figcaption>Figure 1. Dummy image: replace assets/projects/led-cube-4x4x4.svg with your own figure.</figcaption>
+				</figure>
+				<section class="psec reveal">
+					<h2>Overview</h2>
+					<p>A 4 × 4 × 4 LED cube built from 64 LEDs and controlled by an Arduino. Multiplexing lets one controller drive all the LEDs with only a few pins, and PWM signals set the brightness for animations.</p>
+				</section>
+				<section class="psec reveal">
+					<h2>Objectives</h2>
+					<ul>
+						<li>Drive 64 LEDs with as few pins as possible.</li>
+						<li>Use PWM for brightness control.</li>
+						<li>Store LED states in arrays and loops to create animations.</li>
+					</ul>
+				</section>
+				<!-- The equations below illustrate the underlying model. Edit the LaTeX between $$ ... $$ to match your exact implementation. -->
+				<section class="psec eqsec reveal">
+					<h2>Method and key equations</h2>
+					<p>Only one layer is lit at a time. The layers are switched on in turn so quickly that the eye sees all of them lit at once.</p>
+					<div class="eq">$$ N_{\mathrm{pins}} = N^2 + N $$</div>
+					<p class="where">An \(N\times N\times N\) cube needs \(N^2\) column pins plus \(N\) layer pins, so 20 pins for \(N=4\) instead of 64.</p>
+					<div class="eq">$$ D = \frac{1}{N_{\mathrm{layers}}},\qquad I_{\mathrm{avg}} = D\cdot I_{\mathrm{peak}} $$</div>
+					<p class="where">Each layer is on for a fraction \(D\) of the cycle, so the average current is the peak current times \(D\).</p>
+					<div class="eq">$$ R = \frac{V_s - V_f}{I_F} $$</div>
+					<p class="where">Series resistor for each LED, from the supply voltage \(V_s\), LED forward voltage \(V_f\) and wanted current \(I_F\).</p>
+				</section>
+				<section class="psec reveal">
+					<h2>Demo</h2>
+					<p><a class="b1" href="https://youtube.com/shorts/q8__fIJEcQc?feature=share" target="_blank" rel="noopener">▶ Watch the video</a></p>
+				</section>
+				<section class="psec reveal">
+					<h2>Outcome</h2>
+					<p>Add your results here: key findings, figures, and links to the related paper or code.</p>
+				</section>
+				<nav class="pnav">
+					<a href="project-life-cycle-assessment-electric-vehicles.html"><small>← Previous</small>Life Cycle Assessment of Electric Vehicles</a>
+					<a class="r" href="project-line-follower-robot.html"><small>Next →</small>Line Follower Robot</a>
+				</nav>
+			</div>
+		</main>
+		<script src="assets/katex/katex.min.js"></script>
+		<script src="assets/katex/auto-render.min.js"></script>
+		<script src="script.js"></script>
+		<script src="math.js"></script>
+	</body>
+</html>

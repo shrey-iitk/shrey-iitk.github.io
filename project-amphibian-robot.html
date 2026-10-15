@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>Amphibian Robot | Shrey Verma</title>
+		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="assets/katex/katex.min.css">
+	</head>
+	<body>
+		<main>
+			<div class="wrap narrow">
+				<a class="back" href="projects.html">← All projects</a>
+				<header class="phead">
+					<span class="pill">Hobby project</span>
+					<h1>Amphibian Robot</h1>
+					<p class="lead">A robot that works both on land and in water.</p>
+					<div class="skills">
+						<span>DPDT switches</span>
+						<span>SMPS supply</span>
+						<span>DC motors</span>
+					</div>
+				</header>
+				<figure class="pfig reveal">
+					<img src="assets/projects/amphibian-robot.svg" alt="Amphibian Robot (dummy image)">
+					<figcaption>Figure 1. Dummy image: replace assets/projects/amphibian-robot.svg with your own figure.</figcaption>
+				</figure>
+				<section class="psec reveal">
+					<h2>Overview</h2>
+					<p>A robot that works both in water and on land. DPDT switches control its motion, a computer SMPS provides the power supply, and it can perform specific tasks as assigned.</p>
+				</section>
+				<section class="psec reveal">
+					<h2>Objectives</h2>
+					<ul>
+						<li>Move on land and in water with the same body.</li>
+						<li>Control the motion with DPDT switches.</li>
+						<li>Power the robot from a computer SMPS supply.</li>
+					</ul>
+				</section>
+				<!-- The equations below illustrate the underlying model. Edit the LaTeX between $$ ... $$ to match your exact implementation. -->
+				<section class="psec eqsec reveal">
+					<h2>Method and key equations</h2>
+					<p>The body must be light enough to float, and the motors must overcome water drag. DPDT switches reverse the motor polarity to change direction.</p>
+					<div class="eq">$$ F_b = \rho_w\,g\,V_{\mathrm{sub}},\qquad \rho_{\mathrm{robot}} = \frac{m}{V} \lt \rho_w $$</div>
+					<p class="where">Buoyant force from the submerged volume \(V_{\mathrm{sub}}\); the robot floats when its average density is below the density of water \(\rho_w\).</p>
+					<div class="eq">$$ V = I R_a + K_e\,\omega,\qquad \tau = K_t\,I $$</div>
+					<p class="where">DC motor model: supply voltage balances resistive drop and back-EMF, and torque is proportional to current.</p>
+					<div class="eq">$$ F_d = \tfrac{1}{2}\,\rho\,C_d\,A\,v^2 $$</div>
+					<p class="where">Drag force in water, which grows with the square of speed \(v\).</p>
+				</section>
+				<section class="psec reveal">
+					<h2>Demo</h2>
+					<p><a class="b1" href="https://www.youtube.com/watch?v=U-fWGEEQHWo" target="_blank" rel="noopener">▶ Watch the video</a></p>
+				</section>
+				<section class="psec reveal">
+					<h2>Outcome</h2>
+					<p>Add your results here: key findings, figures, and links to the related paper or code.</p>
+				</section>
+				<nav class="pnav">
+					<a href="project-line-follower-robot.html"><small>← Previous</small>Line Follower Robot</a>
+					<a class="r" href="project-ev-charging-impact-iitk.html"><small>Next →</small>Impact Analysis of EV Charging Infrastructure at IIT Kanpur</a>
+				</nav>
+			</div>
+		</main>
+		<script src="assets/katex/katex.min.js"></script>
+		<script src="assets/katex/auto-render.min.js"></script>
+		<script src="script.js"></script>
+		<script src="math.js"></script>
+	</body>
+</html>

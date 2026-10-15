@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>AI-Based Charging Power Prediction | Shrey Verma</title>
+		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="assets/katex/katex.min.css">
+	</head>
+	<body>
+		<main>
+			<div class="wrap narrow">
+				<a class="back" href="projects.html">← All projects</a>
+				<header class="phead">
+					<span class="pill">2024 – 2025</span>
+					<h1>AI-Based Charging Power Prediction</h1>
+					<p class="lead">Deep learning models that predict EV charging power directly from battery State-of-Charge.</p>
+					<div class="skills">
+						<span>Python</span>
+						<span>TensorFlow</span>
+						<span>LSTM</span>
+						<span>Feature engineering</span>
+					</div>
+				</header>
+				<figure class="pfig reveal">
+					<img src="assets/projects/ai-charging-power-prediction.svg" alt="AI-Based Charging Power Prediction (dummy image)">
+					<figcaption>Figure 1. Dummy image: replace assets/projects/ai-charging-power-prediction.svg with your own figure.</figcaption>
+				</figure>
+				<section class="psec reveal">
+					<h2>Overview</h2>
+					<p>Deep learning models (LSTM and hybrid machine learning approaches) were developed to predict active and reactive charging power directly from battery State-of-Charge (SOC). Automated preprocessing, feature engineering and inference pipelines were built using Python and TensorFlow.</p>
+				</section>
+				<section class="psec reveal">
+					<h2>Objectives</h2>
+					<ul>
+						<li>Predict active and reactive charging power from SOC.</li>
+						<li>Automate preprocessing and feature engineering.</li>
+						<li>Package the model as a repeatable inference pipeline.</li>
+					</ul>
+				</section>
+				<!-- The equations below illustrate the underlying model. Edit the LaTeX between $$ ... $$ to match your exact implementation. -->
+				<section class="psec eqsec reveal">
+					<h2>Method and key equations</h2>
+					<p>Charging data is cleaned, scaled and cut into time windows. An LSTM network reads each window and outputs the predicted power, and training minimises the prediction error.</p>
+					<div class="eq">$$ f_t = \sigma\left(W_f\,[h_{t-1},x_t] + b_f\right) $$</div>
+					<p class="where">LSTM forget gate: decides how much of the old memory to keep, from the previous output \(h_{t-1}\) and the current input \(x_t\).</p>
+					<div class="eq">$$ c_t = f_t \odot c_{t-1} + i_t \odot \tanh\left(W_c\,[h_{t-1},x_t] + b_c\right) $$</div>
+					<p class="where">Cell-state update, mixing old memory with new information through the input gate \(i_t\).</p>
+					<div class="eq">$$ \mathcal{L} = \frac{1}{N}\sum_{n=1}^{N}\left(P_n - \hat{P}_n\right)^2 $$</div>
+					<p class="where">Mean squared error between measured power \(P_n\) and predicted power \(\hat{P}_n\), used for training.</p>
+					<div class="eq">$$ Q = P\tan\left(\arccos\phi\right) $$</div>
+					<p class="where">Reactive power from active power \(P\) and power factor \(\phi\).</p>
+				</section>
+				<section class="psec reveal">
+					<h2>Outcome</h2>
+					<p>Add your results here: key findings, figures, and links to the related paper or code.</p>
+				</section>
+				<nav class="pnav">
+					<a href="project-distribution-grid-digital-twin.html"><small>← Previous</small>Distribution Grid Digital Twin using OpenDSS</a>
+					<a class="r" href="project-realtime-ev-data-acquisition-upmu.html"><small>Next →</small>Real-Time EV Charging Data Acquisition using µPMU</a>
+				</nav>
+			</div>
+		</main>
+		<script src="assets/katex/katex.min.js"></script>
+		<script src="assets/katex/auto-render.min.js"></script>
+		<script src="script.js"></script>
+		<script src="math.js"></script>
+	</body>
+</html>
