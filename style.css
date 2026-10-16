@@ -1887,3 +1887,104 @@ main.flush {
 		font-size: 1.8rem;
 	}
 }
+
+/* Institution logos in Education timeline */
+.logo-img {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 12px;
+	flex-shrink: 0;
+	padding: 0;
+	background: transparent;
+	border: 0;
+}
+
+/* dark theme: thin white outline (no box) keeps dark logos visible */
+:root[data-theme=dark] .logo-img img {
+	filter: drop-shadow(0 0 1.5px #fff) drop-shadow(0 0 1px #fff);
+}
+
+.logo-img img {
+	height: 96px;
+	width: auto;
+	max-width: 120px;
+	object-fit: contain;
+	display: block;
+}
+
+.logo-img.logo-pair img {
+	height: 88px;
+	max-width: 110px;
+}
+
+@media (max-width: 600px) {
+	.logo-img img {
+		height: 68px;
+		max-width: 84px;
+	}
+	.logo-img.logo-pair img {
+		height: 60px;
+		max-width: 76px;
+	}
+}
+
+/* Hobbies: big landscape carousel on top, text below */
+.trek {
+	grid-template-columns: minmax(0, 1fr);
+	align-items: stretch;
+	gap: 16px;
+	margin-bottom: 44px;
+}
+
+.trek .car {
+	aspect-ratio: 16 / 9;
+	width: 100%;
+	max-height: 560px;
+	border-radius: 18px;
+}
+
+.trek .slide img {
+	object-fit: cover;
+}
+
+.trek .cb {
+	width: 46px;
+	height: 46px;
+	font-size: 1.9rem;
+}
+
+.trek .cb.prev {
+	left: 16px;
+}
+
+.trek .cb.next {
+	right: 16px;
+}
+
+.trek .dots {
+	bottom: 14px;
+}
+
+.trek .lc {
+	margin: 0;
+	padding: 20px 26px;
+}
+
+.trek .lc h3 {
+	font-size: 1.3rem;
+	margin-bottom: 8px;
+}
+
+.trek .lc p {
+	line-height: 1.75;
+}
+
+@media (max-width: 600px) {
+	.trek .car {
+		aspect-ratio: 4 / 3;
+	}
+	.trek .lc {
+		padding: 16px 18px;
+	}
+}
