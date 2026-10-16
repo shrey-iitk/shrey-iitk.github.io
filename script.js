@@ -19,14 +19,14 @@ const SITE = {
 	first: "Shrey",
 	last: "Verma",
 	pages: [
-		["index.html", "home"],
-		["about.html", "about"],
-		["publications.html", "publications"],
-		["experience.html", "experience"],
-		["projects.html", "projects"],
-		["hobbies.html", "hobbies"],
-		["cv.html", "cv"],
-		["contact.html", "contact"]
+		["index.html", "Home"],
+		["about.html", "About"],
+		["publications.html", "Publications"],
+		["experience.html", "Experience"],
+		["projects.html", "Projects"],
+		["hobbies.html", "Hobbies"],
+		["cv.html", "CV"],
+		["contact.html", "Contact"]
 	]
 };
 (function () {
@@ -126,7 +126,7 @@ const SITE = {
 				const t0 = performance.now();
 				(function f(t) {
 					const p = Math.min((t - t0) / 1200, 1);
-					el.textContent = Math.round(n * p);
+					el.textContent = Math.round(n * p).toLocaleString("en-US");
 					if (p < 1) {
 						requestAnimationFrame(f);
 					}

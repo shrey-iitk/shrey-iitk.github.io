@@ -1898,6 +1898,7 @@ main.flush {
 	padding: 0;
 	background: transparent;
 	border: 0;
+	margin-right: 15px; /* Shift logo left */
 }
 
 /* dark theme: thin white outline (no box) keeps dark logos visible */
@@ -1986,5 +1987,39 @@ main.flush {
 	}
 	.trek .lc {
 		padding: 16px 18px;
+	}
+}
+
+/* About: big rectangular carousel on the left, text on the right */
+.about-top {
+	grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+	gap: 40px;
+	align-items: center;
+}
+
+.about-car {
+    width: 100%;
+    max-width: 1000px;
+    height: auto;
+    aspect-ratio: 4 / 3; /* shape: 16 / 9 = wider, 1 / 1 = square, 3 / 4 = taller */
+    object-fit: cover;
+    border-radius: 18px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, .25);
+}
+
+.about-car .slide img {
+	object-fit: cover;
+	object-position: 60% 50%;
+}
+
+.about-car .cb {
+	width: 42px;
+	height: 42px;
+	font-size: 1.7rem;
+}
+
+@media (max-width: 800px) {
+	.about-top {
+		grid-template-columns: 1fr;
 	}
 }
