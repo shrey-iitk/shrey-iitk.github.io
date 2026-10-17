@@ -45,12 +45,12 @@
 	const statBox = document.getElementById("pub-stats");
 	if (statBox) {
 		const count = k => window.PUBS.filter(p => p.badge === k).length;
-		const known = count("JOUR") + count("CONF") + count("BOOK");
+		const known = count("JOURNAL") + count("CONFERENCE") + count("BOOK CHAPTER");
 		const cards = [
 			["Total publications", window.PUBS.length],
-			["Journal articles", count("JOUR")],
-			["Conference papers", count("CONF")],
-			["Books &amp; chapters", count("BOOK")]
+			["Journal articles", count("JOURNAL")],
+			["Conference papers", count("CONFERENCE")],
+			["Books &amp; chapters", count("BOOK CHAPTER")]
 		];
 		if (window.PUBS.length > known) {
 			cards.push(["Other", window.PUBS.length - known]);

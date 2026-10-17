@@ -24,3 +24,10 @@ Edit `config.js`. Set `provider: "web3forms"` and paste an access key for each r
 ## Code style
 HTML, CSS, JS and JSON use tab indentation (width 4, set in `.editorconfig` so GitHub shows it correctly).
 One tag / statement / declaration per line.
+
+## Projects
+All projects are listed in one file: `projects-data.js`. Copy a block, edit it, and add the project's own page (`project-....html`).
+- `tag: "latest"` shows the project on the home page under "Latest Work" and on the Projects page.
+- `tag: "old"` shows it on the Projects page only.
+- `group: "research"` or `"hobby"` picks the section on the Projects page.
+Cards are laid out three per row (two on tablets, one on phones).

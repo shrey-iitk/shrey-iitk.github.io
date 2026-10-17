@@ -5,6 +5,7 @@
 	--accent: #b509ac;
 	--card: #f8f9fa;
 	--line: #e5e5e5;
+	--tile-shadow: 0 1px 2px rgba(0, 0, 0, .08), 0 0 0 .5px rgba(0, 0, 0, .06);
 }
 
 :root[data-theme=dark] {
@@ -775,7 +776,7 @@ ol.pl li:before {
 .ti {
 	position: relative;
 	display: grid;
-	grid-template-columns: 1fr 64px;
+	grid-template-columns: 1fr auto;
 	gap: 16px;
 	align-items: center;
 	background: var(--card);
@@ -851,10 +852,11 @@ ol.pl li:before {
 }
 
 .area .ic {
-	width: 58px;
-	height: 58px;
-	border-radius: 50%;
-	background: var(--accent);
+	width: 52px;
+	height: 52px;
+	border-radius: 13px;
+	background: #fff;
+	box-shadow: var(--tile-shadow);
 	margin: 0 auto 12px;
 	display: flex;
 	align-items: center;
@@ -1340,7 +1342,21 @@ main.flush {
 }
 
 .pc .ic {
-	font-size: 2rem;
+	width: 52px;
+	height: 52px;
+	border-radius: 13px;
+	background: #fff;
+	box-shadow: var(--tile-shadow);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1.6rem;
+	margin-bottom: 8px;
+}
+
+:root[data-theme=dark] .pc .ic,
+:root[data-theme=dark] .area .ic {
+	background: #2c2c2e;
 }
 
 .pc h3 {
@@ -1888,45 +1904,34 @@ main.flush {
 	}
 }
 
-/* Institution logos in Education timeline */
+/* Institution logos in Education timeline: Apple app-icon style tile */
 .logo-img {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 12px;
+	display: grid;
+	place-items: center;
 	flex-shrink: 0;
-	padding: 0;
-	background: transparent;
-	border: 0;
-	margin-right: 15px; /* Shift logo left */
-}
-
-/* dark theme: thin white outline (no box) keeps dark logos visible */
-:root[data-theme=dark] .logo-img img {
-	filter: drop-shadow(0 0 1.5px #fff) drop-shadow(0 0 1px #fff);
+	width: 88px;
+	height: 88px;
+	padding: 10px;
+	border-radius: 20px;
+	background: #fff;
+	box-shadow: var(--tile-shadow);
 }
 
 .logo-img img {
-	height: 96px;
-	width: auto;
-	max-width: 120px;
-	object-fit: contain;
 	display: block;
-}
-
-.logo-img.logo-pair img {
-	height: 88px;
-	max-width: 110px;
+	max-width: 100%;
+	max-height: 100%;
+	width: auto;
+	height: auto;
+	object-fit: contain;
 }
 
 @media (max-width: 600px) {
-	.logo-img img {
-		height: 68px;
-		max-width: 84px;
-	}
-	.logo-img.logo-pair img {
-		height: 60px;
-		max-width: 76px;
+	.logo-img {
+		width: 64px;
+		height: 64px;
+		padding: 8px;
+		border-radius: 16px;
 	}
 }
 
@@ -2022,4 +2027,118 @@ main.flush {
 	.about-top {
 		grid-template-columns: 1fr;
 	}
+}
+
+/* ===== Latest Work cards (home) ===== */
+.work-grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 20px;
+}
+
+@media (max-width: 860px) {
+	.work-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 560px) {
+	.work-grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+.work {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	background: var(--card);
+	border: 1px solid var(--line);
+	border-radius: 20px;
+	box-shadow: var(--shadow);
+	color: var(--fg);
+	transition: transform .25s, box-shadow .25s;
+}
+
+.work:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 12px 30px rgba(0, 0, 0, .16);
+	text-decoration: none;
+}
+
+.work-img {
+	aspect-ratio: 16 / 9;
+	background: linear-gradient(135deg, var(--accent), var(--accent2));
+}
+
+.work-img img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.work-body {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	padding: 18px 20px 20px;
+}
+
+.work-body h3 {
+	margin: 6px 0;
+	font-size: 1.1rem;
+	line-height: 1.3;
+}
+
+.work-body p {
+	margin: 0;
+	color: var(--muted);
+	font-size: .93rem;
+}
+
+.work .more {
+	margin-top: auto;
+	padding-top: 14px;
+	color: var(--accent);
+	font-weight: 600;
+	font-size: .93rem;
+}
+
+.work:hover .more {
+	text-decoration: underline;
+}
+
+/* The whole card is the click target: the link's ::after covers it */
+.work .more:after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	border-radius: 20px;
+}
+
+.work .more:focus-visible {
+	outline: none;
+}
+
+.work .more:focus-visible:after {
+	outline: 3px solid var(--accent);
+	outline-offset: 3px;
+}
+
+.work .vid {
+	position: relative;
+	z-index: 2;
+	align-self: flex-start;
+	margin-top: 10px;
+}
+
+.work-all {
+	text-align: center;
+	margin: 22px 0 0;
+}
+
+.work-body .pill {
+	align-self: flex-start;
 }
