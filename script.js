@@ -37,7 +37,7 @@ const SITE = {
 	document.body.insertAdjacentHTML("afterbegin", `<nav><div class="wrap"><a class="brand" href="index.html"><b>${SITE.first}</b> ${SITE.last}</a><ul>` +
 		SITE.pages.map(([h, n]) => `<li><a href="${h}" class="${h === section ? "active" : ""}">${n}</a></li>`).join("") +
 		`<li><button id="theme" title="Toggle theme">${saved === "dark" ? "☀️" : "🌙"}</button></li></ul></div></nav>`);
-	document.body.insertAdjacentHTML("beforeend", `<footer><div class="social-foot">${SOCIAL.map(([k, u, t]) => `<a href="${u}" title="${t}" target="_blank" rel="noopener">${ICONS[k]}</a>`).join("")}<a class="av" href="index.html" title="Home">SV<img src="assets/profile.jpg" alt="" onerror="this.remove()"></a></div>© ${new Date().getFullYear()} ${SITE.first} ${SITE.last}. Built with HTML, CSS &amp; JavaScript.</footer>`);
+	document.body.insertAdjacentHTML("beforeend", `<footer><div class="social-foot">${SOCIAL.map(([k, u, t]) => `<a href="${u}" title="${t}" target="_blank" rel="noopener">${ICONS[k]}</a>`).join("")}<a class="av" href="index.html" title="Home">SV<img src="assets/profile.jpg" alt="" onerror="this.remove()"></a></div>© ${new Date().getFullYear()} ${SITE.first} ${SITE.last}</footer>`);
 	document.getElementById("theme").onclick = e => {
 		const t = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
 		document.documentElement.dataset.theme = t;
